@@ -11,6 +11,14 @@ function printExtra(extraNum) {
 
 printExtra(1);
 
+function giveMeRandom(n) {
+  let randomNumbersArray = [];
+  for (let i = 0; i < n; i++) {
+    randomNumbersArray.push(Math.floor(Math.random() * 11));
+  }
+  return randomNumbersArray;
+}
+
 function checkArray(array) {
   let numberSum = 0;
   for (let i = 0; i < array.length; i++) {
@@ -24,7 +32,7 @@ function checkArray(array) {
 
 console.log(
   "The sum of the numbers greater than 5 is:",
-  checkArray([1, 2, 3, 8, 9])
+  checkArray(giveMeRandom(6))
 );
 
 /* EXTRA 2
@@ -45,14 +53,14 @@ let shoppingCart = [
     name: "Phone",
     price: 1000,
     id: "1821",
-    quantity: 1,
+    quantity: 2,
   },
 ];
 
 function shoppingCartTotal(shoppingCart) {
   let totalCosts = 0;
   for (let i = 0; i < shoppingCart.length; i++) {
-    totalCosts += shoppingCart[i].price;
+    totalCosts += shoppingCart[i].price * shoppingCart[i].quantity;
   }
   return totalCosts;
 }
@@ -66,7 +74,7 @@ console.log("Total costs:", shoppingCartTotal(shoppingCart));
 
 printExtra(3);
 
-function addToShoppingCart(newItem, shoppingCart) {
+function addToShoppingCart(newItem) {
   shoppingCart.push(newItem);
   return shoppingCart.length;
 }
@@ -78,10 +86,7 @@ let newItemToAdd = {
   quantity: 1,
 };
 
-console.log(
-  "The number of total items is:",
-  addToShoppingCart(newItemToAdd, shoppingCart)
-);
+console.log("The number of total items is:", addToShoppingCart(newItemToAdd));
 
 /* EXTRA 4
  In your eCommerce you have an array of objects called shoppingCart. Each one of these objects has a price, a name, an id and the quantity to be shipped.
@@ -194,7 +199,8 @@ console.log("The longest string is:", longest(arrayOfStrings));
 printExtra(9);
 
 function spamOrScam(emailContent) {
-  if (emailContent.includes("spam") || emailContent.includes("scam")) {
+  emailContent = emailContent.toUpperCase();
+  if (emailContent.includes("SPAM") || emailContent.includes("SCAM")) {
     return false;
   } else {
     return true;
@@ -211,7 +217,14 @@ console.log(spamOrScam("none"));
 
 printExtra(10);
 
-function calculator(date) {}
+function daysSinceCalculator(date) {
+  var oneDayInMilliseconds = 24 * 60 * 60 * 1000;
+  let today = new Date();
+  return Math.floor((today - date) / oneDayInMilliseconds);
+}
+
+let date = new Date("1999-01-20");
+console.log("Days passed:", daysSinceCalculator(date));
 
 /* EXTRA 11
  Write a function called "matrixGenerator" which receives two integers, x and y, as parameters.

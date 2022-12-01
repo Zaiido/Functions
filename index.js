@@ -101,12 +101,10 @@ printExercise(6);
 
 function check3and7(number) {
   if (number >= 0) {
-    if (number % 3 === 0 && number % 7 === 0) {
-      return `Number ${number} is a multiple of 3 and 7.`;
-    } else if (number % 3 === 0) {
-      return `Number ${number} is a multiple of 3.`;
-    } else if (number % 7 === 0) {
-      return `Number ${number} is a multiple of 7.`;
+    if (number % 3 === 0 || number % 7 === 0) {
+      return `Number ${number} is a multiple of 3 or 7.`;
+    } else {
+      return `Number ${number} is not a multiple of 3 or 7.`;
     }
   } else {
     return `Number ${number} is a negative number.`;
@@ -115,8 +113,6 @@ function check3and7(number) {
 
 console.log(check3and7(-1));
 console.log(check3and7(21));
-console.log(check3and7(9));
-console.log(check3and7(14));
 
 /* EXERCISE 7
  Write a function called "reverseString" which programmatically reverses a given string (es.: Strive => evirtS).
@@ -160,7 +156,8 @@ console.log(upperFirst("hello everybody. i hope you are well."));
 printExercise(9);
 
 function cutString(string) {
-  return string.slice(1, -1);
+  let newString = string.slice(1, -1);
+  return newString;
 }
 
 console.log("The new string is:", cutString("zaide"));
@@ -174,7 +171,7 @@ printExercise(10);
 function giveMeRandom(n) {
   let randomNumbersArray = [];
   for (let i = 0; i < n; i++) {
-    randomNumbersArray.push(Math.random() * 10);
+    randomNumbersArray.push(Math.floor(Math.random() * 11));
   }
   return randomNumbersArray;
 }
