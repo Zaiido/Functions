@@ -49,9 +49,9 @@ printExercise(3);
 
 function crazyDiff(number) {
   if (number > 19) {
-    return `The crazy difference is: ${(number - 19) * 3}`;
+    return `The crazy difference is: ${Math.abs(number - 19) * 3}`;
   } else {
-    return `The diffrence is: ${19 - number}`;
+    return `The diffrence is: ${Math.abs(number - 19)}`;
   }
 }
 
